@@ -1,6 +1,5 @@
 package com.sb1.controller;
 
-import com.sb1.service.CloudWatchService;
 import com.sb1.service.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -18,13 +17,9 @@ public class S3Controller {
     @Autowired
     private S3Service s3Service;
 
-    @Autowired
-    private CloudWatchService cwService;
-
     @PostMapping("/upload")
     public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file) throws IOException {
         s3Service.uploadFile(file);
-        cwService.logMessage("File Uploaded Successfully");
         return ResponseEntity.ok("File Uploaded Successfully");
     }
 
@@ -46,7 +41,6 @@ public class S3Controller {
         } else {
             mediaType = MediaType.IMAGE_JPEG;
         }
-
         return ResponseEntity.ok().contentType(mediaType).body(imageBytes);
     }
 
