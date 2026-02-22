@@ -8,7 +8,7 @@ import java.util.Collections;
 
 @Service
 public class CloudWatchService {
-
+    @Autowired
     private final CloudWatchLogsClient client;
 
     public CloudWatchService(CloudWatchLogsClient client) {

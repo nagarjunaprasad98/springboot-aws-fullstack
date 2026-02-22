@@ -1,0 +1,4 @@
+aws:
+  accessKey: dummy
+  secretKey: dummy
+  region: ap-south-1
