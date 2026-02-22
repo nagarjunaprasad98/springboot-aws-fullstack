@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: sb1
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito:
+            client-id: 42npubefa1htcbhlitpp6jih74
+            client-secret: 19c7vjhqanfbsm1nhufdpdc406p93tsinmpga522d05q16cckq4c
+            redirect-uri: "http://localhost:8081/login/oauth2/code/cognito"
+            scope: openid, email, phone
+        provider:
+          cognito:
+            issuer-uri: https://cognito-idp.eu-north-1.amazonaws.com/eu-north-1_anpqV5DAt
+
+server:
+  port: 8081
+
+aws:
+  accessKey: ${AWS_ACCESS_KEY_ID}
+  secretKey: ${AWS_SECRET_ACCESS_KEY}
+  region: eu-north-1
+  bucket:
+    name: ${AWS_BUCKET}
